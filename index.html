@@ -19,9 +19,19 @@
 
         <script src="dist/sr.umd.js"></script>
         <script>
+            var home = `
+                <h1>Home</h1>
+                <p>I'm the home page, yo.</p>
+            `;
+
+            var about = `
+                <h1>About</h1>
+                <p>Das right, I'm the about page!</p>
+            `;
+
             var sr = new Sr.Sr({
-                '/': `I'm home`,
-                '/about': `I'm about`
+                '/': home,
+                '/about': about
             });
         </script>
     </body>

@@ -1,5 +1,4 @@
 export class Sr {
-    private path: string;
     private routes: {};
     private links: HTMLAnchorElement[];
     private outlet: HTMLElement;
@@ -8,29 +7,35 @@ export class Sr {
         this.routes = routes;
         this.outlet = document.querySelector('[sr-outlet]');
 
-        this.link();
-        this.catch();
+        this.load();
+        this.getLinks();
     }
 
-    private catch(): void {}
+    private load(): void {
+        this.navigate(location.pathname);
+    }
 
-    private link(): void {
-        this.links = [...document.querySelectorAll<HTMLAnchorElement>('[sr-link]')];
+    private getLinks(): void {
+        this.links = [...document.querySelectorAll('[sr-link]')] as HTMLAnchorElement[];
         this.links.forEach((link: HTMLAnchorElement): void => {
-            link.addEventListener('click', this.navigate.bind(this));
-            link.setAttribute('href', link.attributes['sr-link'].value);
+            const path: string = link.attributes['sr-link'].value;
+
+            link.addEventListener('click', this.handleClick.bind(this));
+            link.setAttribute('href', path);
         });
     }
 
-    private navigate(event: MouseEvent): void {
+    private handleClick(event: MouseEvent): void {
         event.preventDefault();
+        this.navigate((event.target as HTMLAnchorElement).attributes['sr-link'].value);
+    }
 
-        this.path = (event.target as HTMLElement).attributes['sr-link'].value;
-        this.outlet.innerHTML = this.routes[this.path];
-        this.link();
+    private navigate(path: string): void {
+        this.outlet.innerHTML = this.routes[path];
+        this.getLinks();
 
         history.pushState({
-            path: this.path
-        }, null, this.path);
+            path: path
+        }, null, path);
     }
 };
