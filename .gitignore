@@ -1,0 +1,15 @@
+# folders
+node_modules
+dist
+
+# os
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# misc
+.rpt2_cache

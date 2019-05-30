@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="de-ch">
+    <head>
+        <meta charset="utf-8">
+        <title>sr test page</title>
+        <style>
+            html {
+                font-family: sans-serif;
+                font-size: 120%;
+                line-height: 1.5;
+            }
+        </style>
+    </head>
+    <body>
+        <a sr-link="/">home</a>
+        <a sr-link="/about">about</a>
+        <main sr-outlet></main>
+
+        <script src="dist/sr.umd.js"></script>
+        <script>
+            var sr = new Sr.Sr({
+                '/': `I'm home`,
+                '/about': `I'm about`
+            });
+        </script>
+    </body>
+</html>
