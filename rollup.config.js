@@ -9,10 +9,10 @@ import pkg from './package.json';
 
 
 export default [{
-    input: pkg.main,
+    input: pkg.index,
     output: {
         sourcemap: true,
-        file: 'dist/sr.esm.js',
+        file: pkg.module,
         format: 'es'
     },
     plugins: [
@@ -20,7 +20,7 @@ export default [{
         babel()
     ]
 }, {
-    input: pkg.main,
+    input: pkg.index,
     plugins: [
         eslint(),
         typescript(),
@@ -32,7 +32,7 @@ export default [{
     ],
     output: {
         sourcemap: true,
-        file: 'dist/sr.umd.js',
+        file: pkg.browser,
         format: 'umd',
         name: 'Sr'
     }
