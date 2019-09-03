@@ -4,7 +4,6 @@ import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
 import { eslint } from 'rollup-plugin-eslint';
-import serve from 'rollup-plugin-serve';
 import pkg from './package.json';
 
 
@@ -27,8 +26,7 @@ export default [{
         resolve(),
         commonjs(),
         babel(),
-        terser(),
-        serve()
+        terser()
     ],
     output: {
         sourcemap: true,
