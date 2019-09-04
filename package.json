@@ -1,11 +1,11 @@
 {
-    "name": "sr",
+    "name": "sirou",
     "version": "0.0.1",
     "description": "The simplest router for your SPAs",
     "index": "src/sr.ts",
     "module": "dist/sr.esm.js",
     "browser": "dist/sr.umd.js",
-    "repository": "https://github.com/rbnlffl/sr.git",
+    "repository": "https://github.com/rbnlffl/sirou.git",
     "author": "Robin Löffel <hi@robinloeffel.ch> (https://robinloeffel.ch)",
     "license": "MIT",
     "devDependencies": {
@@ -28,8 +28,8 @@
     },
     "scripts": {
         "start": "rollup -c -w",
-        "dist": "rollup -c; yarn prepsurge",
-        "prepsurge": "rm -rf surge; mkdir surge; cp index.html cname dist/sr.umd.* surge",
+        "dist": "rollup -c && yarn prepsurge",
+        "prepsurge": "rm -rf surge && mkdir surge && cp index.html cname dist/sr.umd.* surge",
         "update": "yarn upgrade-interactive --latest"
     }
 }

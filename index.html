@@ -3,33 +3,34 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>sr test page</title>
+        <title>Sirou: The simplest router for your SPAs</title>
         <style>
             html {
-                font-family: sans-serif;
+                font-family: "system-ui", sans-serif;
                 font-size: 120%;
                 line-height: 1.6;
             }
         </style>
     </head>
     <body>
-        <a sr-link="/">home</a>
-        <a sr-link="/about">about</a>
+        <a sr-link="/">Home</a>
+        <a sr-link="/about">About</a>
         <main sr-outlet></main>
 
         <script src="sr.umd.js"></script>
+
         <script>
-            var home = `
+            const home = `
                 <h1>Home</h1>
                 <p>I'm the home page, yo.</p>
             `;
 
-            var about = `
+            const about = `
                 <h1>About</h1>
                 <p>Das right, I'm the about page!</p>
             `;
 
-            var sr = new Sr.Sr({
+            const sr = new Sr.Sr({
                 '/': home,
                 '/about': about
             });
