@@ -3,7 +3,15 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Sirou: The simplest router for your SPAs</title>
+        <meta name="description" content="sirou is the most lightweight single-page application router you'll ever meet. npm i sirou, dude!">
+        <meta name="keywords" content="npm, yarn, package, single-page application, app, spa, router, javascript, js">
+        <meta name="author" content="Robin Löffel">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="index, follow">
+        <title>sirou: The simplest router for your single-page apps</title>
+        <link rel="shortcut icon" type="image/png" href="favicon.png">
+        <link rel="canonical" href="https://sirou.surge.sh">
+        <meta name="google-site-verification" content="aO8HEwTH32qJQB3hx2V-90u3JOROxOlKxhu2c5s53rM">
         <style>
             html {
                 font-family: "system-ui", sans-serif;
@@ -13,11 +21,11 @@
         </style>
     </head>
     <body>
-        <a sr-link="/">Home</a>
-        <a sr-link="/about">About</a>
-        <main sr-outlet></main>
+        <a sirou-link="/">Home</a>
+        <a sirou-link="/about">About</a>
+        <main sirou-outlet></main>
 
-        <script src="sr.umd.js"></script>
+        <script src="sirou.iife.js"></script>
 
         <script>
             const home = `
@@ -30,7 +38,7 @@
                 <p>Das right, I'm the about page!</p>
             `;
 
-            const sr = new Sr.Sr({
+            const sirou = new Sirou({
                 '/': home,
                 '/about': about
             });

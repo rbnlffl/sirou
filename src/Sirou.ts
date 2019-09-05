@@ -1,11 +1,11 @@
-export class Sr {
+export default class Sirou {
     private routes: {};
     private links: HTMLAnchorElement[];
     private outlet: HTMLElement;
 
     public constructor(routes: {}) {
         this.routes = routes;
-        this.outlet = document.querySelector('[sr-outlet]');
+        this.outlet = document.querySelector('[sirou-outlet]');
 
         this.load();
         this.getLinks();
@@ -17,12 +17,12 @@ export class Sr {
     }
 
     private getLinks(): void {
-        this.links = [...document.querySelectorAll('[sr-link]')] as HTMLAnchorElement[];
+        this.links = [...document.querySelectorAll('[sirou-link]')] as HTMLAnchorElement[];
     }
 
     private setListeners(): void {
         this.links.forEach((link: HTMLAnchorElement): void => {
-            const path: string = link.attributes['sr-link'].value;
+            const path: string = link.attributes['sirou-link'].value;
 
             link.addEventListener('click', this.handleClick.bind(this));
             link.setAttribute('href', path);
@@ -33,7 +33,7 @@ export class Sr {
 
     private handleClick(event: MouseEvent): void {
         event.preventDefault();
-        this.navigate((event.target as HTMLAnchorElement).attributes['sr-link'].value);
+        this.navigate((event.target as HTMLAnchorElement).attributes['sirou-link'].value);
     }
 
     private handlePopstate(event: PopStateEvent): void {

@@ -22,16 +22,15 @@ export default [{
     input: pkg.index,
     plugins: [
         eslint(),
-        typescript(),
         resolve(),
         commonjs(),
+        typescript(),
         babel(),
         terser()
     ],
     output: {
-        sourcemap: true,
         file: pkg.browser,
         format: 'umd',
-        name: 'Sr'
+        name: 'Sirou'
     }
 }];
